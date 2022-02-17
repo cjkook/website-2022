@@ -1,5 +1,7 @@
 html,
 body {
+  /* font-family: "Dorsa", sans-serif; */
+  /* font-family: "Open Sans Condensed", sans-serif; */
   background-color: #ebaa98;
   width: 100%;
   height: 100%;
@@ -14,12 +16,14 @@ h4,
 h5,
 h6 {
   color: white;
+  font-family: "Open Sans Condensed", sans-serif;
+  /* font-family: "Dorsa", sans-serif; */
 }
 
 h2 {
   background-color: black;
-  padding-left:10px;
-  padding-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 a:hover,
@@ -38,9 +42,18 @@ a:hover > * {
 
 ul.categories {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* title bar */
+
+.title-bar {
+  /* position: relative; */
+  margin-top: 5vh;
+  width: 50%;
+  /* margin: auto; */
 }
 
 .category {
@@ -48,87 +61,122 @@ ul.categories {
 }
 
 /*content*/
+@media (min-width: 800px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .category--content {
+    position: absolute;
+    top: 50px;
+    white-space: nowrap;
+    right: 0;
+    transform: translateX(100%);
+  }
 
-.category--content {
-  position: absolute;
-  top: 50px;
-  white-space: nowrap;
-  right: 0;
-  transform: translateX(100%);
+  /*last item content*/
+  .isLast .category--content {
+    right: initial;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .isLast .category--content h2 {
+    transform: translateX(50px);
+    text-align: right;
+  }
+
+  .isLast .category--content .project-list {
+    padding: 0 30px 0 0;
+  }
+
+  .isLast .category--content,
+  .isLast .category--content .project-list,
+  .isLast .category--content .project-list li {
+    text-align: right;
+  }
+  .category--content h2 {
+    text-align: left;
+    font-size: 44px;
+    transform: translateX(-50px);
+    font-weight: bold;
+  }
+
+  .category--content .project-list {
+    padding: 0 0 0 30px;
+  }
+
+  .category--content,
+  .category--content .project-list,
+  .category--content .project-list li {
+    text-align: left;
+  }
+
+  .category--name {
+    position: absolute;
+    white-space: nowrap;
+    width: calc(100% - 5px);
+    transition: all 0.5s ease;
+    padding-top: 5px;
+    margin-top: 2rem;
+    margin-right: 5px;
+    border-top: 1px solid aliceblue;
+    color: aliceblue;
+  }
+
+  .category--name h6 {
+    font-size: 20px;
+    color: inherit;
+    text-transform: lowercase;
+  }
+
+  .focused .category--name {
+    opacity: 0;
+  }
+
+  .projectlist--client {
+    font-size: 18px;
+    margin-bottom: 0px;
+    -webkit-text-stroke: 0;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .projectlist--byline {
+    font-size: 12px;
+    font-family: "Nothing You Could Do", sans-serif;
+  }
 }
 
-.category--content h2 {
-  text-align: left;
-  font-size: 44px;
-  transform: translateX(-50px);
-  font-weight: bold;
-}
+@media (max-width: 800px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  .category--content {
+    background-color: rgba(34, 34, 34, 0.26);
+    position: absolute;
+    top: 50px;
+    white-space: nowrap;
+    right: 0;
+    /* transform: translateX(100%); */
+  }
 
-.category--content .project-list {
-  padding: 0 0 0 30px;
-}
+  /*last item content*/
+  .isLast .category--content {
+    right: initial;
+    left: 0;
+    transform: translateX(-50%);
+  }
 
-.category--content,
-.category--content .project-list,
-.category--content .project-list li {
-  text-align: left;
-}
+  .isLast .category--content h2 {
+    transform: translateX(50px);
+    text-align: right;
+  }
 
-.category--name {
-  position: absolute;
-  white-space: nowrap;
-  width: calc(100% - 5px);
-  transition: all 0.5s ease;
-  padding-top: 5px;
-  margin-top: 2rem;
-  margin-right: 5px;
-  border-top: 1px solid aliceblue;
-  color: aliceblue;
-}
+  .isLast .category--content .project-list {
+    padding: 0 30px 0 0;
+  }
 
-.category--name h6 {
-  font-size: 20px;
-  color: inherit;
-  text-transform: lowercase;
-}
-
-.focused .category--name {
-  opacity: 0;
-}
-
-.projectlist--client {
-  font-size: 18px;
-  margin-bottom: 0px;
-  -webkit-text-stroke: 0;
-  text-transform: capitalize;
-  font-weight: bold;
-}
-.projectlist--byline {
-  font-size: 12px;
-  font-family: "Nothing You Could Do", sans-serif;
-}
-
-/*last item content*/
-
-.isLast .category--content {
-  right: initial;
-  left: 0;
-  transform: translateX(-100%);
-}
-
-.isLast .category--content h2 {
-  transform: translateX(50px);
-  text-align: right;
-}
-
-.isLast .category--content .project-list {
-  padding: 0 30px 0 0;
-}
-
-.isLast .category--content,
-.isLast .category--content .project-list,
-.isLast .category--content .project-list li {
-  text-align: right;
+  .isLast .category--content,
+  .isLast .category--content .project-list,
+  .isLast .category--content .project-list li {
+    text-align: right;
+  }
 }
 
 /*inactive states*/
@@ -184,7 +232,7 @@ li.category.isActive {
 
 .category--image {
   z-index: -1;
-  opacity: 0.9;
+  opacity: 0.95;
   transition: opacity 500ms ease, width 500ms ease 100ms;
 }
 
@@ -216,15 +264,18 @@ li.category.isActive {
 }
 
 /*hover state*/
+
 .category--image {
   transition: width 500ms ease;
 }
+
 .categories--menu-container:not(.focused) li.category:hover .category--name {
   border-color: #eee;
   color: #eee;
 }
 
 /*Nav*/
+
 .right-arrow {
   position: fixed;
   bottom: 50px;
@@ -247,6 +298,7 @@ li.category.isActive {
   padding: 5px;
   font-size: 12px;
 }
+
 .right-arrow img,
 .left-arrow img {
   position: absolute;
